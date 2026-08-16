@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --app-font-scale: 1rem;
+    --app-line-height: 1.5;
+    --app-letter-spacing: normal;
+
+    /* Theme Tokens */
+    --color-surface: #f9f9ff;
+    --color-surface-dim: #d9dae0;
+    --color-surface-bright: #f9f9ff;
+    --color-surface-container-lowest: #ffffff;
+    --color-surface-container-low: #f2f3fa;
+    --color-surface-container: #ededf4;
+    --color-surface-container-high: #e7e8ef;
+    --color-surface-container-highest: #e1e2e9;
+    --color-on-surface: #191c20;
+    --color-on-surface-variant: #424751;
+    --color-inverse-surface: #2e3036;
+    --color-inverse-on-surface: #eff0f7;
+    --color-outline: #737782;
+    --color-outline-variant: #c2c6d3;
+    --color-primary: #215ba7;
+    --color-on-primary: #ffffff;
+    --color-primary-container: #4075c1;
+    --color-on-primary-container: #fefcff;
+    --color-secondary: #4d5f7e;
+    --color-on-secondary: #ffffff;
+    --color-secondary-container: #c8dbff;
+    --color-on-secondary-container: #4e607e;
+    --color-tertiary: #7d5400;
+    --color-on-tertiary: #ffffff;
+    --color-tertiary-container: #9d6b00;
+    --color-on-tertiary-container: #fffbff;
+    --color-error: #ba1a1a;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: var(--app-font-scale);
+    line-height: var(--app-line-height);
+    letter-spacing: var(--app-letter-spacing);
+    background-color: var(--color-surface);
+    color: var(--color-on-surface);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #215ba7 !important;
+    outline-offset: 2px !important;
+  }
+}
+
+/* Custom UI Patterns */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(194, 198, 211, 0.6);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+.bento-card {
+  background-color: #ffffff;
+  border: 1px solid #c2c6d3;
+  border-radius: 1rem;
+  transition: all 0.25s ease;
+}
+
+.bento-card:hover {
+  border-color: #215ba7;
+  box-shadow: 0 8px 20px -4px rgba(33, 91, 167, 0.12);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #215ba7 0%, #4075c1 50%, #4d5f7e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Timeline step connector */
+.timeline-step {
+  position: relative;
+  padding-left: 2.25rem;
+  padding-bottom: 2rem;
+}
+
+.timeline-step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #215ba7;
+  z-index: 10;
+}
+
+.timeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1rem;
+  bottom: -0.5rem;
+  width: 2px;
+  background-color: #c2c6d3;
+  z-index: 5;
+}
+
+/* Hide scrollbar helper */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Input Focus Glow */
+.input-glow:focus-within {
+  box-shadow: 0 0 0 3px rgba(33, 91, 167, 0.15);
+  border-color: #215ba7;
+}
+
+/* Accessibility Modifiers */
+.font-size-large {
+  font-size: 1.125rem !important;
+}
+
+.font-size-xlarge {
+  font-size: 1.25rem !important;
+}
+
+.text-spacing-wide {
+  letter-spacing: 0.08em !important;
+  word-spacing: 0.16em !important;
+  line-height: 1.9 !important;
+}
+
+.font-dyslexic {
+  font-family: 'Comic Sans MS', 'Trebuchet MS', 'Verdana', sans-serif !important;
+  letter-spacing: 0.06em !important;
+  word-spacing: 0.12em !important;
+}
+
+/* High Contrast Themes */
+.theme-high-contrast-dark {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+.theme-high-contrast-dark .bg-white,
+.theme-high-contrast-dark .bg-slate-50,
+.theme-high-contrast-dark .bg-slate-100 {
+  background-color: #121212 !important;
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+.theme-high-contrast-dark .text-slate-600,
+.theme-high-contrast-dark .text-slate-500,
+.theme-high-contrast-dark .text-slate-400 {
+  color: #e2e8f0 !important;
+}
+
+.theme-high-contrast-light {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+.theme-high-contrast-light .border,
+.theme-high-contrast-light .border-slate-200 {
+  border-color: #000000 !important;
+}
+
+.theme-night-vision-amber {
+  background-color: #050505 !important;
+  color: #f59e0b !important;
+}
+.theme-night-vision-amber .bg-white,
+.theme-night-vision-amber .bg-slate-50 {
+  background-color: #100c08 !important;
+  border-color: #f59e0b !important;
+  color: #fbbf24 !important;
+}
+
+/* Reduced Motion Mode */
+.reduced-motion * {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+

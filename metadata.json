@@ -1,0 +1,6 @@
+{
+  "name": "EduSage",
+  "description": "EduSage: An adaptive AI-powered learning and career assistant that adapts to your accessibility needs, learning style, knowledge gaps, and career goals.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
